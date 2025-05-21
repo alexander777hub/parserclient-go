@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package parser;
+option go_package = "ps/parser";
+
+service ParserService {
+  rpc ParseTable (ParseRequest) returns (ParseResponse);
+}
+
+message ParseRequest {
+  string file_path = 1;
+}
+
+message ParseResponse {
+  repeated TableRow rows = 1;
+}
+
+message TableRow {
+  repeated string cells = 1;
+}
