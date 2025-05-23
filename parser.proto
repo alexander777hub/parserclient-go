@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package parser;
 option go_package = "ps/parser";
-
 service ParserService {
   rpc ParseTable (ParseRequest) returns (ParseResponse);
 }
@@ -13,8 +12,13 @@ message ParseRequest {
 
 message ParseResponse {
   repeated TableRow rows = 1;
+  repeated Content contents = 2;
 }
 
 message TableRow {
   repeated string cells = 1;
+}
+
+message Content {
+  string text = 1;
 }
